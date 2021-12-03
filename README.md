@@ -1,1 +1,36 @@
 # 2021Fall_finals
+Analysis Of Factors Affecting Food Prices
+
+Team members: 
+
+Darshan Pangare (pangare2, Github: DarshanPangare)
+Nemil Shah (nemil2, Github: Nemilshah1999)
+
+Datasets:
+
+1.     Global food prices dataset: https://www.kaggle.com/jboysen/global-food-prices
+
+2.     
+
+3.     
+
+Overview: 
+
+
+Authorities are becoming increasingly concerned about price swings as global warming threatens to undermine the food supply. There has been a variance in the prices of some commodities around the world in recent decades.
+
+Variations in food prices are associated with several factors:
+
+1.     Country’s development status.
+
+2.     Unpredictable temperature and weather variations
+
+3.     Natural disasters or calamities destroy the harvested produce, resulting in lower supply and higher demand.
+
+
+
+To analyze the scenario described above, we have proposed the following hypotheses:
+
+Hypothesis 1: The hike in the price of bread for developing countries is low as compared to underdeveloped countries.
+
+Hypothesis 2: The occurrence of a natural disaster results in a rise in the market price of food items.
