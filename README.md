@@ -10,12 +10,12 @@ Datasets:
 
 1.     Global food prices dataset: https://www.kaggle.com/jboysen/global-food-prices
 
-2.     
+2.     Food prices dataset for United State: https://www.fao.org/faostat/en/#data/PP
 
-3.     
+3.     Storm dataset for various years: https://www.ncei.noaa.gov/pub/data/swdi/stormevents/csvfiles/
+
 
 Overview: 
-
 
 Authorities are becoming increasingly concerned about price swings as global warming threatens to undermine the food supply. There has been a variance in the prices of some commodities around the world in recent decades.
 
@@ -33,4 +33,4 @@ To analyze the scenario described above, we have proposed the following hypothes
 
 Hypothesis 1: The hike in the price of bread for developing countries is low as compared to underdeveloped countries.
 
-Hypothesis 2: The occurrence of a natural disaster results in a rise in the market price of food items.
+Hypothesis 2: The occurrence of a natural disaster such as storm has effect over the rise in food prices.
