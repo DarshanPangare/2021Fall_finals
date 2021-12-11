@@ -5,7 +5,7 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 from scipy.stats import pearsonr
 
-df = pd.read_csv("/Users/dp/Desktop/SEM 1/IS597PR/Final_Project/Datasets/Food_dataset/wfp_market_food_prices.csv")
+df = pd.read_csv("/Users/dp/Desktop/SEM 1/IS597PR/Final_Project/Datasets/Food_dataset/wfp_market_food_prices.csv", encoding = 'unicode_escape')
 # df
 
 #Rename all the columns
@@ -29,22 +29,22 @@ def select_data(country1, country2, commodity):
     :param country2: Name of an underdeveloped country
     :param commodity: Name of a commodity
     :return: a dataframe with the selected countries and commodity
-    >>> select_data("India", "Pakistan", "Wheat") # doctests : +ELLIPSIS
-
-   	country_id	country_name	locality_id	locality_name	market_id	market_name	commodity_id	commodity_name	currency_id	currency_name	...	market_type	measurement_id	unit	month	year	price	source_information	country_status	price_factor	usd_price
-157245	115	India	1510	Uttar Pradesh	922	Agra	84	Wheat	68	INR	...	Retail	5	KG	1	2011	12.50	M/o Consumer Affairs, Food and Public Distribu...	Developing	0.0130	0.16250
-157246	115	India	1510	Uttar Pradesh	922	Agra	84	Wheat	68	INR	...	Retail	5	KG	2	2011	13.50	M/o Consumer Affairs, Food and Public Distribu...	Developing	0.0130	0.17550
-157247	115	India	1510	Uttar Pradesh	922	Agra	84	Wheat	68	INR	...	Retail	5	KG	3	2011	15.00	M/o Consumer Affairs, Food and Public Distribu...	Developing	0.0130	0.19500
-157248	115	India	1510	Uttar Pradesh	922	Agra	84	Wheat	68	INR	...	Retail	5	KG	4	2011	12.36	M/o Consumer Affairs, Food and Public Distribu...	Developing	0.0130	0.16068
-157249	115	India	1510	Uttar Pradesh	922	Agra	84	Wheat	68	INR	...	Retail	5	KG	5	2011	12.00	M/o Consumer Affairs, Food and Public Distribu...	Developing	0.0130	0.15600
-...	...	...	...	...	...	...	...	...	...	...	...	...	...	...	...	...	...	...	...	...	...
-446346	188	Pakistan	2272	Balochistan	295	Quetta	84	Wheat	45	PKR	...	Retail	5	KG	12	2016	35.00	Pakistan Bureau of Statistics	Underdeveloped	0.0057	0.19950
-446347	188	Pakistan	2272	Balochistan	295	Quetta	84	Wheat	45	PKR	...	Retail	5	KG	1	2017	35.00	Pakistan Bureau of Statistics	Underdeveloped	0.0057	0.19950
-446348	188	Pakistan	2272	Balochistan	295	Quetta	84	Wheat	45	PKR	...	Retail	5	KG	2	2017	35.00	Pakistan Bureau of Statistics	Underdeveloped	0.0057	0.19950
-446349	188	Pakistan	2272	Balochistan	295	Quetta	84	Wheat	45	PKR	...	Retail	5	KG	3	2017	35.00	Pakistan Bureau of Statistics	Underdeveloped	0.0057	0.19950
-446350	188	Pakistan	2272	Balochistan	295	Quetta	84	Wheat	45	PKR	...	Retail	5	KG	4	2017	35.00	Pakistan Bureau of Statistics	Underdeveloped	0.0057	0.19950
-5929 rows × 21 columns
-    """
+    >>> select_data("India", "Pakistan", "Wheat") # doctest : +NORMALIZE_WHITESPACE +ELLIPSIS
+            country_id country_name  ...  price_factor usd_price
+    157245         115        India  ...        0.0130   0.16250
+    157246         115        India  ...        0.0130   0.17550
+    157247         115        India  ...        0.0130   0.19500
+    157248         115        India  ...        0.0130   0.16068
+    157249         115        India  ...        0.0130   0.15600
+    ...            ...          ...  ...           ...       ...
+    446346         188     Pakistan  ...        0.0057   0.19950
+    446347         188     Pakistan  ...        0.0057   0.19950
+    446348         188     Pakistan  ...        0.0057   0.19950
+    446349         188     Pakistan  ...        0.0057   0.19950
+    446350         188     Pakistan  ...        0.0057   0.19950
+    <BLANKLINE>
+    [5929 rows x 21 columns]
+   	"""
     selective_data = combined_data.loc[((combined_data.country_name == country1) | (combined_data.country_name == country2)) & (food_data.commodity_name == commodity)]
     return selective_data
 
@@ -54,22 +54,22 @@ def calc_diff(group: pd.DataFrame):
 
     :param group: dataframe of the selected countries and commodity
     :return: original dataframe with an additional column consisting of price difference values
-    >>>d = select_data("India", "Pakistan", "Wheat")
-    >>>calc_diff(d) # doctests : +ELLIPSIS
-
-    	country_id	country_name	locality_id	locality_name	market_id	market_name	commodity_id	commodity_name	currency_id	currency_name	...	measurement_id	unit	month	year	price	source_information	country_status	price_factor	usd_price	usd_chng
-157245	115	India	1510	Uttar Pradesh	922	Agra	84	Wheat	68	INR	...	5	KG	1	2011	12.50	M/o Consumer Affairs, Food and Public Distribu...	Developing	0.0130	0.16250	NaN
-157246	115	India	1510	Uttar Pradesh	922	Agra	84	Wheat	68	INR	...	5	KG	2	2011	13.50	M/o Consumer Affairs, Food and Public Distribu...	Developing	0.0130	0.17550	0.01300
-157247	115	India	1510	Uttar Pradesh	922	Agra	84	Wheat	68	INR	...	5	KG	3	2011	15.00	M/o Consumer Affairs, Food and Public Distribu...	Developing	0.0130	0.19500	0.01950
-157248	115	India	1510	Uttar Pradesh	922	Agra	84	Wheat	68	INR	...	5	KG	4	2011	12.36	M/o Consumer Affairs, Food and Public Distribu...	Developing	0.0130	0.16068	-0.03432
-157249	115	India	1510	Uttar Pradesh	922	Agra	84	Wheat	68	INR	...	5	KG	5	2011	12.00	M/o Consumer Affairs, Food and Public Distribu...	Developing	0.0130	0.15600	-0.00468
-...	...	...	...	...	...	...	...	...	...	...	...	...	...	...	...	...	...	...	...	...	...
-446346	188	Pakistan	2272	Balochistan	295	Quetta	84	Wheat	45	PKR	...	5	KG	12	2016	35.00	Pakistan Bureau of Statistics	Underdeveloped	0.0057	0.19950	0.00000
-446347	188	Pakistan	2272	Balochistan	295	Quetta	84	Wheat	45	PKR	...	5	KG	1	2017	35.00	Pakistan Bureau of Statistics	Underdeveloped	0.0057	0.19950	0.00000
-446348	188	Pakistan	2272	Balochistan	295	Quetta	84	Wheat	45	PKR	...	5	KG	2	2017	35.00	Pakistan Bureau of Statistics	Underdeveloped	0.0057	0.19950	0.00000
-446349	188	Pakistan	2272	Balochistan	295	Quetta	84	Wheat	45	PKR	...	5	KG	3	2017	35.00	Pakistan Bureau of Statistics	Underdeveloped	0.0057	0.19950	0.00000
-446350	188	Pakistan	2272	Balochistan	295	Quetta	84	Wheat	45	PKR	...	5	KG	4	2017	35.00	Pakistan Bureau of Statistics	Underdeveloped	0.0057	0.19950	0.00000
-5929 rows × 22 columns
+    >>> d = select_data("India", "Pakistan", "Wheat")
+    >>> calc_diff(d) # doctest : +NORMALIZE_WHITESPACE +ELLIPSIS
+            country_id country_name  locality_id  ... price_factor  usd_price usd_chng
+    157245         115        India         1510  ...       0.0130    0.16250      NaN
+    157246         115        India         1510  ...       0.0130    0.17550  0.01300
+    157247         115        India         1510  ...       0.0130    0.19500  0.01950
+    157248         115        India         1510  ...       0.0130    0.16068 -0.03432
+    157249         115        India         1510  ...       0.0130    0.15600 -0.00468
+    ...            ...          ...          ...  ...          ...        ...      ...
+    446346         188     Pakistan         2272  ...       0.0057    0.19950  0.00000
+    446347         188     Pakistan         2272  ...       0.0057    0.19950  0.00000
+    446348         188     Pakistan         2272  ...       0.0057    0.19950  0.00000
+    446349         188     Pakistan         2272  ...       0.0057    0.19950  0.00000
+    446350         188     Pakistan         2272  ...       0.0057    0.19950  0.00000
+    <BLANKLINE>
+    [5929 rows x 22 columns]
 
     """
     group['usd_chng'] = group.usd_price.diff(1)
@@ -133,3 +133,7 @@ def calc_corr(country1, country2, commodity):
         corr_value = pearsonr(result.loc[result['country_name'] == country1, 'usd_price'].tolist(),
                               result.loc[result['country_name'] == country2, 'usd_price'].tolist())
     return corr_value
+
+if __name__ == "__main__":
+    import doctest
+    doctest.testmod(verbose=True, optionflags=doctest.ELLIPSIS)
