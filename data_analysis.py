@@ -54,6 +54,23 @@ def calc_diff(group: pd.DataFrame):
 
     :param group: dataframe of the selected countries and commodity
     :return: original dataframe with an additional column consisting of price difference values
+    >>>d = select_data("India", "Pakistan", "Wheat")
+    >>>calc_diff(d) # doctests : +ELLIPSIS
+
+    	country_id	country_name	locality_id	locality_name	market_id	market_name	commodity_id	commodity_name	currency_id	currency_name	...	measurement_id	unit	month	year	price	source_information	country_status	price_factor	usd_price	usd_chng
+157245	115	India	1510	Uttar Pradesh	922	Agra	84	Wheat	68	INR	...	5	KG	1	2011	12.50	M/o Consumer Affairs, Food and Public Distribu...	Developing	0.0130	0.16250	NaN
+157246	115	India	1510	Uttar Pradesh	922	Agra	84	Wheat	68	INR	...	5	KG	2	2011	13.50	M/o Consumer Affairs, Food and Public Distribu...	Developing	0.0130	0.17550	0.01300
+157247	115	India	1510	Uttar Pradesh	922	Agra	84	Wheat	68	INR	...	5	KG	3	2011	15.00	M/o Consumer Affairs, Food and Public Distribu...	Developing	0.0130	0.19500	0.01950
+157248	115	India	1510	Uttar Pradesh	922	Agra	84	Wheat	68	INR	...	5	KG	4	2011	12.36	M/o Consumer Affairs, Food and Public Distribu...	Developing	0.0130	0.16068	-0.03432
+157249	115	India	1510	Uttar Pradesh	922	Agra	84	Wheat	68	INR	...	5	KG	5	2011	12.00	M/o Consumer Affairs, Food and Public Distribu...	Developing	0.0130	0.15600	-0.00468
+...	...	...	...	...	...	...	...	...	...	...	...	...	...	...	...	...	...	...	...	...	...
+446346	188	Pakistan	2272	Balochistan	295	Quetta	84	Wheat	45	PKR	...	5	KG	12	2016	35.00	Pakistan Bureau of Statistics	Underdeveloped	0.0057	0.19950	0.00000
+446347	188	Pakistan	2272	Balochistan	295	Quetta	84	Wheat	45	PKR	...	5	KG	1	2017	35.00	Pakistan Bureau of Statistics	Underdeveloped	0.0057	0.19950	0.00000
+446348	188	Pakistan	2272	Balochistan	295	Quetta	84	Wheat	45	PKR	...	5	KG	2	2017	35.00	Pakistan Bureau of Statistics	Underdeveloped	0.0057	0.19950	0.00000
+446349	188	Pakistan	2272	Balochistan	295	Quetta	84	Wheat	45	PKR	...	5	KG	3	2017	35.00	Pakistan Bureau of Statistics	Underdeveloped	0.0057	0.19950	0.00000
+446350	188	Pakistan	2272	Balochistan	295	Quetta	84	Wheat	45	PKR	...	5	KG	4	2017	35.00	Pakistan Bureau of Statistics	Underdeveloped	0.0057	0.19950	0.00000
+5929 rows × 22 columns
+
     """
     group['usd_chng'] = group.usd_price.diff(1)
     return group
@@ -97,6 +114,8 @@ def calc_corr(country1, country2, commodity):
     :param country2: Name of an underdeveloped country
     :param commodity: Name of a commodity
     :return: Pearson correlation coefficient and p-value
+    >>> calc_corr("India", "Pakistan", "Wheat")
+    (0.22274829066815113, 0.2640932178164745)
     """
     _data = select_data(country1, country2, commodity)
     q1, q2 = _data[_data['year'] == _data.groupby(_data['country_name'])['year'].min().max()], _data[
@@ -114,5 +133,3 @@ def calc_corr(country1, country2, commodity):
         corr_value = pearsonr(result.loc[result['country_name'] == country1, 'usd_price'].tolist(),
                               result.loc[result['country_name'] == country2, 'usd_price'].tolist())
     return corr_value
-
-
