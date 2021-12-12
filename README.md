@@ -3,7 +3,7 @@
 
 ![](Images/GroceryInflation.jpeg)
 
-Team members: 
+## Team members: 
 
 Darshan Pangare (pangare2, Github: DarshanPangare)
 Nemil Shah (nemil2, Github: Nemilshah1999)
