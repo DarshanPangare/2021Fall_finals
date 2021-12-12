@@ -82,7 +82,7 @@ def plot_data(combined_data, country1, country2, commodity):
     ax1.set_xticks([i for i in unique_yrs])
     ax1.set_xlim(q1[0], q2[0])
     ax1.set_xlabel("Year", fontsize=20)
-    ax1.set_ylabel("% Change in USD", fontsize=20)
+    ax1.set_ylabel("% Change in Price", fontsize=20)
     ax1.set_title('Developing v/s Underdeveloped Country', fontsize=20)
     sns.set(rc={'figure.figsize': (12, 10)})
     plt.legend(loc=2, bbox_to_anchor=(1, 1), prop={"size": 20})
