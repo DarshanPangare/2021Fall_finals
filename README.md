@@ -23,11 +23,9 @@ Variations in food prices are associated with several factors:
 
 1.     Country’s development status.
 
-2.     Country Status Dataset: https://github.com/DarshanPangare/2021Fall_finals/blob/main/Dataset/Country_status_price.xlsx
+2.     Unpredictable temperature and weather variations
 
-3.     Unpredictable temperature and weather variations
-
-4.     Natural disasters or calamities destroy the harvested produce, resulting in lower supply and higher demand.
+3.     Natural disasters or calamities destroy the harvested produce, resulting in lower supply and higher demand.
 
 
 
@@ -39,9 +37,9 @@ All the data files used in the program can be found on the below link: One would
 
 2.     Country Status Dataset: https://github.com/DarshanPangare/2021Fall_finals/blob/main/Dataset/Country_status_price.xlsx
 
-2.     Food prices dataset for United State: https://www.fao.org/faostat/en/#data/PP
+3.     Food prices dataset for United State: https://www.fao.org/faostat/en/#data/PP
 
-3.     Storm dataset for various years: https://www.ncei.noaa.gov/pub/data/swdi/stormevents/csvfiles/
+4.     Storm dataset for various years: https://www.ncei.noaa.gov/pub/data/swdi/stormevents/csvfiles/
 
 
 
