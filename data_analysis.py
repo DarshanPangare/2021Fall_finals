@@ -61,7 +61,7 @@ def plot_data(combined_data, country1, country2, commodity):
     """
     selective_data = select_data(combined_data, country1, country2, commodity)
     new = selective_data.groupby(['country_name', 'year'])['usd_price'].mean().reset_index()
-    new['pct'] = new['usd_price'].pct_change()
+    new['pct'] = new['usd_price'].pct_change().fillna(0)
     new.sort_values(by='year', inplace=True)
 
     #     Find a common minimum and maximum year for the selected countries and commodity, to be set as x limits
