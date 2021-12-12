@@ -63,10 +63,18 @@ Therefore we reject our hypothesis.
 
 
 ## Hypothesis 2: 
-Null hypothesis: The occurrence of a natural disaster such as storm has effect over the rise in food prices.
-Alternative hypothesis: The occurrence of a natural disaster such as storm would not have much effect over food prices.
 
 ![](Images/storm.jpeg)
+
+Null hypothesis: The occurrence of a natural disaster such as storm has effect over the rise in food prices.
+
+Alternative hypothesis: The occurrence of a natural disaster such as storm would not have much effect over food prices.
+
+<img width="1060" alt="Screen Shot 2021-12-12 at 3 54 23 AM" src="https://user-images.githubusercontent.com/37592358/145709703-1dbc4517-3258-4b4c-8f04-b62b3c72f2a5.png">
+<img width="1060" alt="Screen Shot 2021-12-12 at 3 54 59 AM" src="https://user-images.githubusercontent.com/37592358/145709720-e75d7dca-1c16-4b45-8228-a6e22862e22f.png">
+<img width="1060" alt="Screen Shot 2021-12-12 at 5 02 16 AM" src="https://user-images.githubusercontent.com/37592358/145709785-6337dd3e-682c-446e-b028-d4d1f8fd50f9.png">
+<img width="1060" alt="Screen Shot 2021-12-12 at 5 02 27 AM" src="https://user-images.githubusercontent.com/37592358/145709752-c901c08f-2cd6-4b87-9f9f-23d960cb8e66.png">
+
 
 # Result:
 
