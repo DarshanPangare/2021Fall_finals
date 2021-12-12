@@ -59,4 +59,8 @@ From the analysis, it is clearly evident that the food prices in Developing and 
 Therefore we reject our hypothesis.
 
 
-Hypothesis 2: The occurrence of a natural disaster such as storm has effect over the rise in food prices.
+## Hypothesis 2: The occurrence of a natural disaster such as storm has effect over the rise in food prices.
+
+![](Images/storm.jpeg)
+
+
