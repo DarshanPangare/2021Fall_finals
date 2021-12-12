@@ -31,7 +31,7 @@ Variations in food prices are associated with several factors:
 
 ## Datasets:
 
-All the data files used in the program can be found on the below link: One would need to download these files to run the code on their local machine.
+All the data files used in the program can be found on the below links. One would need to download these files to run the code on their local machine.
 
 1.     Global food prices dataset: https://www.kaggle.com/jboysen/global-food-prices
 
@@ -48,6 +48,8 @@ All the data files used in the program can be found on the below link: One would
 ## Hypothesis 1: The hike in the price of food for developing countries is low as compared to underdeveloped countries.
 
 ![](Images/1developing_under.jpeg)
+
+Here, we compare the price of several commodities over the years for different pairs of developing and underdeveloped countries. We have converted the food prices from different regions to a common USD scale. This has helped us in analyzing and plotting the data. The food commodity that we chose were Bread and Wheat. 
 
 
 Hypothesis 2: The occurrence of a natural disaster such as storm has effect over the rise in food prices.
