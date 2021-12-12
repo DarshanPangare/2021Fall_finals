@@ -54,7 +54,7 @@ H1: The hike in the price of food for developing countries does not influence th
 
 Here, we compare the price of several commodities over the years for different pairs of developing and underdeveloped countries. We have converted the food prices from different regions to a common USD scale. This has helped us in analyzing and plotting the data. The food commodity that we chose were Bread and Wheat. 
 
-![](Images/Ind_Pak.png)
+
 
 # Result:
 
