@@ -10,7 +10,7 @@ pd.options.mode.chained_assignment = None  # default='warn'
 pd.options.plotting.backend = "plotly"
 
 
-def get_hyp1_data():
+def get_hyp1_data(): -> pd.DataFrame:
     """
     :return: a dataframe with all the required data/columns
     >>> get_hyp1_data() # doctest: +NORMALIZE_WHITESPACE +ELLIPSIS
@@ -46,7 +46,7 @@ def get_hyp1_data():
     return combined_data
 
 
-def select_data(combined_data, country1, country2, commodity):
+def select_data(combined_data: pd.DataFrame, country1: str, country2: str, commodity: str) -> pd.DataFrame:
     """
     Creates a dataframe based on the selected countries and commodity
     :param combined_data: Dataframe containing all the columns
@@ -77,7 +77,7 @@ def select_data(combined_data, country1, country2, commodity):
     return selective_data
 
 
-def plot_data(combined_data, country1, country2, commodity):
+def plot_data(combined_data: pd.DataFrame, country1: str, country2: str, commodity: str):
     """
     Plots a line graph with 'Year' on x-axis and the 'Price' of commodity on the y-axis
     :param combined_data: Dataframe containing all the columns
@@ -116,7 +116,7 @@ def plot_data(combined_data, country1, country2, commodity):
     plt.show()
 
 
-def calc_corr(combined_data, country1, country2, commodity):
+def calc_corr(combined_data: pd.DataFrame, country1: str, country2: str, commodity: str) -> (float, float):
     """
     Calculates the correlation coefficient and p-value for the two countries and the selected commodity
     :param combined_data: Dataframe containing all the columns
@@ -149,7 +149,7 @@ def calc_corr(combined_data, country1, country2, commodity):
 
 # Hypothesis 2
 
-def get_storm_data() -> None:
+def get_storm_data() -> pd.DataFrame:
     """
     This function creates a empty dataframe and merges all the storm datasets from the year 2019 to 2011 by reading it
     as a csv file. As there were many storms in the dataset, we are only considering the significant storms by
@@ -202,7 +202,7 @@ def get_date(row: pd.DataFrame) -> str:
         return np.nan
 
 
-def find_for_crop(crop_name, data, storm_df_grouped):
+def find_for_crop(crop_name: list, data: pd.DataFrame, storm_df_grouped: pd.DataFrame) -> str:
     """
     This function joins the two main dataset. The result_df is dataframe where we calculate the difference between the
     current value of the commodities and the price of that commodity after a month as the storm will have it's effect
