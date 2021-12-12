@@ -50,7 +50,7 @@ def select_data(combined_data, country1, country2, commodity):
 
 
 
-def plot_data(selective_data, country1, country2, commodity):
+def plot_data(combined_data, country1, country2, commodity):
     """
     Plots a line graph with 'Year' on x-axis and the 'Price' of commodity on the y-axis
     :param combined_data: Dataframe containing all the columns
@@ -59,7 +59,7 @@ def plot_data(selective_data, country1, country2, commodity):
     :param commodity: Name of a commodity
     :return: Plots a line graph
     """
-    new = selective_data.groupby(['country_name', 'year'])['usd_price'].mean().reset_index()
+    new = combined_data.groupby(['country_name', 'year'])['usd_price'].mean().reset_index()
     new['pct'] = new['usd_price'].pct_change()
     new.sort_values(by='year', inplace=True)
 
