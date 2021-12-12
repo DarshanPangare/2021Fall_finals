@@ -138,7 +138,3 @@ def calc_corr(combined_data, country1, country2, commodity):
     else:
         corr_value = pearsonr(result.loc[result['country_name']== country1, 'usd_price'].tolist(), result.loc[result['country_name']== country2, 'usd_price'].tolist())
     return corr_value
-
-# if __name__ == "__main__":
-#     import doctest
-#     doctest.testmod(verbose=True, optionflags=doctest.ELLIPSIS)
