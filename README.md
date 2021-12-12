@@ -53,5 +53,14 @@ Here, we compare the price of several commodities over the years for different p
 
 ![](Images/Ind_Pak.png)
 
+## Result:
 
-Hypothesis 2: The occurrence of a natural disaster such as storm has effect over the rise in food prices.
+From the analysis, it is clearly evident that the food prices in Developing and Underdeveloped countries are not related.
+Therefore we reject our hypothesis.
+
+
+## Hypothesis 2: The occurrence of a natural disaster such as storm has effect over the rise in food prices.
+
+![](Images/storm.jpeg)
+
+
