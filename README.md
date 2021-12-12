@@ -1,7 +1,7 @@
 # 2021Fall_finals
 # Analysis Of Factors Affecting Food Prices
 
-![](images/GroceryInflation.jpeg)
+![](Images/GroceryInflation.jpeg)
 
 Team members: 
 
