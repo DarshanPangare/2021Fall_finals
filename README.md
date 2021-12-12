@@ -1,6 +1,8 @@
 # 2021Fall_finals
 # Analysis Of Factors Affecting Food Prices
 
+![](images/GroceryInflation.jpeg)
+
 Team members: 
 
 Darshan Pangare (pangare2, Github: DarshanPangare)
