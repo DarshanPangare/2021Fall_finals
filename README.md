@@ -53,7 +53,7 @@ Here, we compare the price of several commodities over the years for different p
 
 ![](Images/Ind_Pak.png)
 
-## Result:
+# Result:
 
 From the analysis, it is clearly evident that the food prices in Developing and Underdeveloped countries are not related.
 Therefore we reject our hypothesis.
