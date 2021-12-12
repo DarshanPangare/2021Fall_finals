@@ -50,7 +50,7 @@ def select_data(combined_data, country1, country2, commodity):
 
 
 
-def plot_data(combined_data, country1, country2, commodity):
+def plot_data(selective_data, country1, country2, commodity):
     """
     Plots a line graph with 'Year' on x-axis and the 'Price' of commodity on the y-axis
     :param combined_data: Dataframe containing all the columns
