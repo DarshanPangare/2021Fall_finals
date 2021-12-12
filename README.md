@@ -62,8 +62,15 @@ From the analysis, it is clearly evident that the food prices in Developing and 
 Therefore we reject our hypothesis.
 
 
-## Hypothesis 2: The occurrence of a natural disaster such as storm has effect over the rise in food prices.
+## Hypothesis 2: 
+Null hypothesis: The occurrence of a natural disaster such as storm has effect over the rise in food prices.
+Alternative hypothesis: The occurrence of a natural disaster such as storm would not have much effect over food prices.
 
 ![](Images/storm.jpeg)
 
+# Result:
+
+From the analysis, we observe that some of the plots such as Cauliflower and Brocolli, Peas dry have P-value (i.e. the second value) lower than 0.05 which might seem that it follows the idea proposed in the null hypothesis. But most of the plots such as wheat, apples etc do not follow the trend. Also as the P value is greater than 0.05 and the correlation is close to 0 so we can say that, we fail to prove that storm prices have significant effect on the food crops.
+
+Therefore, we reject our null hypothesis.
 
