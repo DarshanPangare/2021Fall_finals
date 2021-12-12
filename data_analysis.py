@@ -10,7 +10,7 @@ pd.options.mode.chained_assignment = None  # default='warn'
 pd.options.plotting.backend = "plotly"
 
 
-def get_hyp1_data(): -> pd.DataFrame:
+def get_hyp1_data() -> pd.DataFrame:
     """
     :return: a dataframe with all the required data/columns
     >>> get_hyp1_data() # doctest: +NORMALIZE_WHITESPACE +ELLIPSIS
