@@ -50,4 +50,5 @@ Hypothesis 1: The hike in the price of food for developing countries is low as c
 ![](Images/developing_under.jpeg)
 
 
+
 Hypothesis 2: The occurrence of a natural disaster such as storm has effect over the rise in food prices.
