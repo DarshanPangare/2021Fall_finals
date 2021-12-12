@@ -47,6 +47,9 @@ All the data files used in the program can be found on the below links. One woul
 
 ## Hypothesis 1: The hike in the price of food for developing countries is low as compared to underdeveloped countries.
 
+H1: The hike in the price of food for developing countries does not influence the price of food in underdeveloped countries.
+
+
 ![](Images/1developing_under.jpeg)
 
 Here, we compare the price of several commodities over the years for different pairs of developing and underdeveloped countries. We have converted the food prices from different regions to a common USD scale. This has helped us in analyzing and plotting the data. The food commodity that we chose were Bread and Wheat. 
