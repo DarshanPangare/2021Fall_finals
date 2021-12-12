@@ -15,8 +15,12 @@ food_data = df.rename(columns={"adm0_id": "country_id", "adm0_name": "country_na
 country_data = pd.read_excel("/Users/dp/Desktop/SEM 1/IS597PR/Final_Project/Datasets/Food_dataset/Country_status_price.xlsx")
 # country_data
 
-combined_data = food_data.merge(country_data, left_on = 'country_name', right_on = 'country_name')
-combined_data['usd_price'] = combined_data['price'] * combined_data['price_factor']
+comb_data = food_data.merge(country_data, left_on = 'country_name', right_on = 'country_name')
+comb_data['usd_price'] = comb_data['price'] * comb_data['price_factor']
+# comb_data
+
+# Exclude unecessary columns
+combined_data = comb_data[['country_name', 'commodity_name', 'month', 'year', 'price', 'country_status', 'price_factor', 'usd_price']]
 # combined_data
 
 #Check the data type of all the columns
@@ -86,10 +90,16 @@ def plot_data(country1, country2, commodity):
     """
     subset_data = select_data(country1, country2, commodity)
     subset_data.sort_values(by='year', inplace=True)
+
+    #     Find a common minimum and maximum year for the selected countries and commodity, to be set as x limits
+
     q1, q2 = subset_data[subset_data['year'] == subset_data.groupby(subset_data['country_name'])['year'].min().max()][
                  'year'].unique(), \
              subset_data[subset_data['year'] == subset_data.groupby(subset_data['country_name'])['year'].max().min()][
                  'year'].unique()
+
+    #     Create a list of unique years to be used as x labels
+
     unique_yrs = []
     for year in subset_data['year'].unique():
         if year in range(q1[0], q2[0] + 1):
@@ -100,12 +110,12 @@ def plot_data(country1, country2, commodity):
     ax1 = sns.lineplot(data=t, x="year", y="usd_price", ci=None, hue="country_name", sort=True, marker='o')
     ax1.set_xticks([i for i in unique_yrs])
     ax1.set_xlim(q1[0], q2[0])
-    ax1.set_xlabel("Year")
-    ax1.set_ylabel("Price")
-#     ax1, ax = plt.subplots(2, 2, sharex=True, figsize=(16,8))
-    sns.set(rc = {'figure.figsize':(20,12)})
+    ax1.set_xlabel("Year", fontsize=20)
+    ax1.set_ylabel("Commodity Price in USD", fontsize=20)
+    ax1.set_title('Developing v/s Underdeveloped Country', fontsize=20)
+    sns.set(rc={'figure.figsize': (12, 10)})
+    plt.legend(loc=2, bbox_to_anchor=(1, 1), prop={"size": 20})
     plt.show()
-
 
 def calc_corr(country1, country2, commodity):
     """
