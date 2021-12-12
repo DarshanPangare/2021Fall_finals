@@ -77,7 +77,7 @@ def select_data(combined_data: pd.DataFrame, country1: str, country2: str, commo
     return selective_data
 
 
-def plot_data(combined_data: pd.DataFrame, country1: str, country2: str, commodity: str):
+def plot_data(combined_data: pd.DataFrame, country1: str, country2: str, commodity: str)-> None:
     """
     Plots a line graph with 'Year' on x-axis and the 'Price' of commodity on the y-axis
     :param combined_data: Dataframe containing all the columns
@@ -114,9 +114,10 @@ def plot_data(combined_data: pd.DataFrame, country1: str, country2: str, commodi
     sns.set(rc={'figure.figsize': (12, 10)})
     plt.legend(loc=2, bbox_to_anchor=(1, 1), prop={"size": 20})
     plt.show()
+    return None
 
 
-def calc_corr(combined_data: pd.DataFrame, country1: str, country2: str, commodity: str) -> (float, float):
+def calc_corr(combined_data: pd.DataFrame, country1: str, country2: str, commodity: str) -> tuple:
     """
     Calculates the correlation coefficient and p-value for the two countries and the selected commodity
     :param combined_data: Dataframe containing all the columns
