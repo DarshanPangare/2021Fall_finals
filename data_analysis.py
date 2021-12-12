@@ -1,12 +1,11 @@
 import pandas as pd
-
-pd.options.mode.chained_assignment = None  # default='warn'
 import plotly.express as px
 import numpy as np
 from datetime import datetime
 import matplotlib.pyplot as plt
 import seaborn as sns
 from scipy.stats import pearsonr
+pd.options.mode.chained_assignment = None  # default='warn'
 
 pd.options.plotting.backend = "plotly"
 
@@ -30,7 +29,7 @@ def get_hyp1_data():
     <BLANKLINE>
     [743914 rows x 8 columns]
     """
-    df = pd.read_csv("/Users/dp/Desktop/SEM 1/IS597PR/Final_Project/Datasets/Food_dataset/wfp_market_food_prices.csv",
+    df = pd.read_csv("Dataset/wfp_market_food_prices.csv",
                      encoding="ISO-8859-1")
     food_data = df.rename(columns={"adm0_id": "country_id", "adm0_name": "country_name", "adm1_id": "locality_id",
                                    "adm1_name": "locality_name", "mkt_id": "market_id", "mkt_name": "market_name",
@@ -39,7 +38,7 @@ def get_hyp1_data():
                                    "um_id": "measurement_id", "um_name": "unit", "mp_month": "month", "mp_year": "year",
                                    "mp_price": "price", "mp_commoditysource": "source_information"})
     country_data = pd.read_excel(
-        "/Users/dp/Desktop/SEM 1/IS597PR/Final_Project/Datasets/Food_dataset/Country_status_price.xlsx")
+        f"Dataset/Country_status_price.xlsx")
     comb_data = food_data.merge(country_data, left_on='country_name', right_on='country_name')
     comb_data['usd_price'] = comb_data['price'] * comb_data['price_factor']
     combined_data = comb_data[
@@ -175,7 +174,7 @@ def get_storm_data() -> None:
     storm_df = pd.DataFrame()
     for i in range(19, 10, -1):
         storm_df = storm_df.append(pd.read_csv(
-            f'/Users/dp/Desktop/SEM 1/IS597PR/2021Fall_finals/Dataset/StormEvents_details-ftp_v1.0_d20{i}.csv'))
+            f'Dataset/StormEvents_details-ftp_v1.0_d20{i}.csv'))
     storm_df = storm_df[['BEGIN_YEARMONTH', 'BEGIN_DAY', 'BEGIN_TIME', 'END_YEARMONTH', 'END_DAY', 'END_TIME',
                          'EPISODE_ID', 'EVENT_ID', 'STATE', 'YEAR', 'MONTH_NAME', 'EVENT_TYPE', 'DAMAGE_PROPERTY',
                          'DAMAGE_CROPS', 'MAGNITUDE']]
