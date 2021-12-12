@@ -45,6 +45,7 @@ All the data files used in the program can be found on the below link: One would
 
 ## To analyze the scenario described above, we have proposed the following hypotheses:
 
-Hypothesis 1: The hike in the price of bread for developing countries is low as compared to underdeveloped countries.
+Hypothesis 1: The hike in the price of food for developing countries is low as compared to underdeveloped countries.
+
 
 Hypothesis 2: The occurrence of a natural disaster such as storm has effect over the rise in food prices.
