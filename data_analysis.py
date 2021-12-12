@@ -59,7 +59,7 @@ def plot_data(combined_data, country1, country2, commodity):
     :param commodity: Name of a commodity
     :return: Plots a line graph
     """
-    new = combined_data.groupby(['country_name', 'year'])['usd_price'].mean().reset_index()
+    new = selective_data.groupby(['country_name', 'year'])['usd_price'].mean().reset_index()
     new['pct'] = new['usd_price'].pct_change()
     new.sort_values(by='year', inplace=True)
 
