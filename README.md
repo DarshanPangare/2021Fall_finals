@@ -51,5 +51,7 @@ All the data files used in the program can be found on the below links. One woul
 
 Here, we compare the price of several commodities over the years for different pairs of developing and underdeveloped countries. We have converted the food prices from different regions to a common USD scale. This has helped us in analyzing and plotting the data. The food commodity that we chose were Bread and Wheat. 
 
+![](Images/Ind_Pak)
+
 
 Hypothesis 2: The occurrence of a natural disaster such as storm has effect over the rise in food prices.
