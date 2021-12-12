@@ -8,9 +8,23 @@ from scipy.stats import pearsonr
 def get_hyp1_data():
     """
     :return: a dataframe with all the required data/columns
-    >>> combined_data = get_hyp1_data()
+    >>> get_hyp1_data() # doctest: +NORMALIZE_WHITESPACE +ELLIPSIS
+            country_name          commodity_name  ...  price_factor  usd_price
+    0       Afghanistan                   Bread  ...        0.0100    0.50000
+    1       Afghanistan                   Bread  ...        0.0100    0.50000
+    2       Afghanistan                   Bread  ...        0.0100    0.50000
+    3       Afghanistan                   Bread  ...        0.0100    0.50000
+    4       Afghanistan                   Bread  ...        0.0100    0.50000
+    ...             ...                     ...  ...           ...        ...
+    743909  South Sudan                  Sesame  ...        0.0023    0.92000
+    743910  South Sudan           Fuel (diesel)  ...        0.0023    0.02875
+    743911  South Sudan           Fuel (diesel)  ...        0.0023    0.21850
+    743912  South Sudan  Fuel (petrol-gasoline)  ...        0.0023    0.21850
+    743913  South Sudan  Fuel (petrol-gasoline)  ...        0.0023    0.21551
+    <BLANKLINE>
+    [743914 rows x 8 columns]
     """
-    df = pd.read_csv("/Users/dp/Desktop/SEM 1/IS597PR/Final_Project/Datasets/Food_dataset/wfp_market_food_prices.csv")
+    df = pd.read_csv("/Users/dp/Desktop/SEM 1/IS597PR/Final_Project/Datasets/Food_dataset/wfp_market_food_prices.csv", encoding = "ISO-8859-1")
     food_data = df.rename(columns={"adm0_id": "country_id", "adm0_name": "country_name", "adm1_id": "locality_id", "adm1_name": "locality_name", "mkt_id": "market_id", "mkt_name": "market_name", "cm_id": "commodity_id", "cm_name": "commodity_name", "cur_id" : "currency_id", "cur_name" : "currency_name", "pt_id" : "market_type_id", "pt_name" : "market_type", "um_id": "measurement_id", "um_name" : "unit", "mp_month": "month", "mp_year": "year", "mp_price": "price", "mp_commoditysource" : "source_information"})
     country_data = pd.read_excel("/Users/dp/Desktop/SEM 1/IS597PR/Final_Project/Datasets/Food_dataset/Country_status_price.xlsx")
     comb_data = food_data.merge(country_data, left_on = 'country_name', right_on = 'country_name')
@@ -29,21 +43,21 @@ def select_data(combined_data, country1, country2, commodity):
     :param commodity: Name of a commodity
     :return: a dataframe with the selected countries and
     >>> temp_df = get_hyp1_data()
-    >>> select_data(temp_df, "India", "Pakistan", "Wheat") # doctest : +NORMALIZE_WHITESPACE +ELLIPSIS
-            country_id country_name  ...  price_factor usd_price
-    157245         115        India  ...        0.0130   0.16250
-    157246         115        India  ...        0.0130   0.17550
-    157247         115        India  ...        0.0130   0.19500
-    157248         115        India  ...        0.0130   0.16068
-    157249         115        India  ...        0.0130   0.15600
-    ...            ...          ...  ...           ...       ...
-    446346         188     Pakistan  ...        0.0057   0.19950
-    446347         188     Pakistan  ...        0.0057   0.19950
-    446348         188     Pakistan  ...        0.0057   0.19950
-    446349         188     Pakistan  ...        0.0057   0.19950
-    446350         188     Pakistan  ...        0.0057   0.19950
+    >>> select_data(temp_df, "India", "Pakistan", "Wheat") # doctest: +NORMALIZE_WHITESPACE +ELLIPSIS
+           country_name commodity_name  ...  price_factor  usd_price
+    157245        India          Wheat  ...        0.0130    0.16250
+    157246        India          Wheat  ...        0.0130    0.17550
+    157247        India          Wheat  ...        0.0130    0.19500
+    157248        India          Wheat  ...        0.0130    0.16068
+    157249        India          Wheat  ...        0.0130    0.15600
+    ...             ...            ...  ...           ...        ...
+    446346     Pakistan          Wheat  ...        0.0057    0.19950
+    446347     Pakistan          Wheat  ...        0.0057    0.19950
+    446348     Pakistan          Wheat  ...        0.0057    0.19950
+    446349     Pakistan          Wheat  ...        0.0057    0.19950
+    446350     Pakistan          Wheat  ...        0.0057    0.19950
     <BLANKLINE>
-    [5929 rows x 21 columns]
+    [5929 rows x 8 columns]
    	"""
     selective_data = combined_data.loc[((combined_data.country_name == country1) | (combined_data.country_name == country2)) & (combined_data.commodity_name == commodity)]
     return selective_data
@@ -96,7 +110,9 @@ def calc_corr(combined_data, country1, country2, commodity):
     :param country2: Name of an underdeveloped country
     :param commodity: Name of a commodity
     :return: Pearson correlation coefficient and p-value
-    >>> calc_corr("India", "Pakistan", "Wheat")
+    >>> temp_df = get_hyp1_data()
+    >>> combined_data = select_data(temp_df, "India", "Pakistan", "Wheat")
+    >>> calc_corr(combined_data, "India", "Pakistan", "Wheat")
     (0.22274829066815113, 0.2640932178164745)
     """
     _data = select_data(combined_data, country1, country2, commodity)
