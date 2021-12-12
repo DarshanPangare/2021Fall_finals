@@ -47,8 +47,6 @@ All the data files used in the program can be found on the below link: One would
 
 Hypothesis 1: The hike in the price of food for developing countries is low as compared to underdeveloped countries.
 
-![](Images/developing_under.jpeg)
-
 
 
 
